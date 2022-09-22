@@ -112,7 +112,7 @@
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"> <a class="nav-link" href="{{route('admin.productAdd')}}">Ürün Ekleme</a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{route('admin.categoryList')}}">Category Listesi</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">kategori</a></li>
                     </ul>
                 </div>
             </li>
