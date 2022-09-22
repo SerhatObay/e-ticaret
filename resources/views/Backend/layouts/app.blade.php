@@ -111,8 +111,8 @@
                 <div class="collapse" id="ui-basic">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"> <a class="nav-link" href="{{route('admin.productAdd')}}">Ürün Ekleme</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{route('admin.categoryList')}}">Category Listesi</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">kategori</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{route('admin.categoryList')}}">Kategori Listesi</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{route('admin.categoryAdd')}}">Kategori Ekleme</a></li>
                     </ul>
                 </div>
             </li>
@@ -561,6 +561,63 @@
 
 
 
+</script>
+<script>
+    $('.deleteCategory').click(function () {
+        //let educationID = $(this).data('id');
+        let categoryID = $(this).attr('data-id');//Üstteki yöntemin başka bir formatı
+
+        Swal.fire({
+            title: categoryID+"Emin Misiniz",
+            text: categoryID+" ID'li Ürünü Silmek İstiyor musunuz?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Evet',
+            cancelButtonText: "Hayır",
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                $.ajax({
+                    url:"{{route('admin.categoryDelete')}}",
+                    // method:"POST"
+                    type:"POST",
+                    async:false,
+                    data : {
+                        categoryID:categoryID
+                    },
+                    success:function (response)
+                    {
+                        console.log(response)
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Başarılı',
+                            text:  "Silme İşlemi Başarılı",
+                            confirmButtonText:"Tamam",
+
+                        });
+                        $("tr#"+categoryID).remove();
+
+
+
+
+                    },
+                    error:function ()
+                    {
+
+                    }
+                });
+                // Swal.fire(
+                //     'Deleted!',
+                //     'Your file has been deleted.',
+                //     'success'
+                // )
+            }
+        })
+
+
+    });
 </script>
 
 <!-- End custom js for this page -->

@@ -30,6 +30,9 @@ Route::prefix('admin')->middleware('auth')->group(function (){
 
         Route::prefix('/category')->group(function (){
             Route::get('list',[\App\Http\Controllers\CategoryController::class,'list'])->name('admin.categoryList');
+            Route::get('/add',[\App\Http\Controllers\CategoryController::class,'addShow'])->name('admin.categoryAdd');
+            Route::post('/add',[\App\Http\Controllers\CategoryController::class,'add']);
+            Route::post('/delete',[\App\Http\Controllers\CategoryController::class,'delete'])->name('admin.categoryDelete');
         });
     });
 
