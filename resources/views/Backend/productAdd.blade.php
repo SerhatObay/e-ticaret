@@ -103,7 +103,8 @@
 
                         <div class="form-group">
                             <label for="image">Ürün Resmi</label>
-                            <input type="file" class="form-control" name="image" id="image" required >
+                            <input type="file" class="form-control" name="image" id="image" required>
+
                             @error('image')
                             <div class="alert alert-danger">{{$message}}</div>
                             @enderror

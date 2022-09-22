@@ -28,6 +28,9 @@ Route::prefix('admin')->middleware('auth')->group(function (){
         Route::post('/delete',[\App\Http\Controllers\ProductController::class,'delete'])->name('admin.productDelete');
         Route::post('/changeStatus',[\App\Http\Controllers\ProductController::class,'changeStatus'])->name('admin.productChangeStatus');
 
+        Route::prefix('/category')->group(function (){
+            Route::get('list',[\App\Http\Controllers\CategoryController::class,'list'])->name('admin.categoryList');
+        });
     });
 
 
