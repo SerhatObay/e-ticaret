@@ -90,7 +90,7 @@
                 </div>
             </li>
             <li class="nav-item nav-category">
-                <span class="nav-link">Navigation</span>
+                <span class="nav-link">Menü</span>
             </li>
             <li class="nav-item menu-items">
                 <a class="nav-link" href="{{route('admin.productList')}}">
